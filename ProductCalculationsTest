@@ -1,0 +1,27 @@
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class ProductCalculationsTest {
+
+    @Test
+    public void GetVat_WithValidData_ReturnsCorrectValue() {
+        // Test Name: GetVat_WithValidData_ReturnsCorrectValue()
+        // Test Purpose: The test will verify that the GetVat method in the ProductCalculations class correctly returns the VAT amount.
+
+        double price = 3500.0;
+        ProductCalculations calc = new ProductCalculations(price);
+
+        double expectedVat = 3500.0 * 0.15; // 525.0
+        assertEquals(expectedVat, calc.GetVat(), 0.001);
+    }
+
+    @Test
+    public void GetTotal_WithValidData_ReturnsCorrectValue() {
+        // Additional test verifying total calculation
+        double price = 3500.0;
+        ProductCalculations calc = new ProductCalculations(price);
+
+        double expectedTotal = 3500.0 + (3500.0 * 0.15) + (3500.0 * 0.05); // 4200.0
+        assertEquals(expectedTotal, calc.GetTotal(), 0.001);
+    }
+}
